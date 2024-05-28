@@ -19,7 +19,7 @@ jobs:
           submodules: recursive
       - name: Build archive
         run: >
-          tar -c ${{ env.release_name }} -f ${{ env.release_name }}.tar.gz -z --exclude=.git*
+          tar  --exclude=".git*" -cz ${{ env.release_name }} -f ${{ env.release_name }}.tar.gz
       - name: Add files to release
         run: |
             cd ${{ env.release_name }} || die
